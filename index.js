@@ -26,7 +26,7 @@ const logger = winston.createLogger({
         }),
         new winston.transports.File({ filename: "error.log", level: "error" }),
     ],
-    exceptionHandlers: [new winston.transports.File({ filename: "exception" })],
+    exceptionHandlers: [new winston.transports.File({ filename: "exception.log" })],
 });
 
 const PORT = process.env.PORT || 3000;
