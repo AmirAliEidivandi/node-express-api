@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const winston = require("winston");
 require("dotenv").config();
+const cors = require("cors");
 
 const connectDB = require("./app/db/connect");
 const usersRouter = require("./app/routes/users.routes");
@@ -10,6 +11,7 @@ const notFound = require("./app/error/not-found");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use("/api/v1/users", usersRouter);
 app.get("/", (req, res) => res.send("Hello World!"));
